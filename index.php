@@ -1,8 +1,10 @@
 <?php
 
 
+require 'core/bootstrap.php';
 
-require 'routes.php'
+$router = new Router;
 
+require 'routes.php';
 
 ?>
