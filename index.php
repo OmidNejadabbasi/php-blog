@@ -2,12 +2,7 @@
 
 
 
-
-$routes = [
-    '' => 'controllers/index.php',
-    'about' => 'controllers/about.php'
-]
-
+require 'routes.php'
 
 
 ?>
