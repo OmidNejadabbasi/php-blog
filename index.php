@@ -1,12 +1,11 @@
 <?php
 
 
-require 'core/bootstrap.php';
+require 'vendor/autoload.php';
 
 $router = new Router;
 
-require 'routes.php';
-
+// routing not working
 
 require $router->direct(trim($_SERVER['REQUEST_URI'], '/'));
 
