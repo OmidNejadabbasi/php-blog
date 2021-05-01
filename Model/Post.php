@@ -3,18 +3,20 @@ require 'Model/Author.php';
 
 class Post
 {
+    protected $postId;
     protected $fileName;
     protected $lastModified;
     protected $title;
-    protected Author $author;
+    protected $abstract;
+    protected $authorId;
 
-    public function __construct($fileName, $lastModified, $title, Author $author)
+    public function __construct($fileName, $lastModified, $title, $abstract, $authorId)
     {
         $this->fileName = $fileName;
         $this->lastModified = $lastModified;
         $this->title = $title;
-        $this->author = $author;
-
+        $this->authorId = $authorId;
+        $this->abstract = $abstract;
     }
 
     public function getFileName()
@@ -53,15 +55,24 @@ class Post
         return $this;
     }
 
-
-    public function getAuthor()
+    public function getAbstract()
     {
-        return $this->author;
+        return $this->abstract;
     }
 
-    public function setAuthor($author)
+    public function setAbstract($abstract)
     {
-        $this->author = $author;
+        $this->abstract = $abstract;
+    }
+
+    public function getAuthorId()
+    {
+        return $this->authorId;
+    }
+
+    public function setAuthorId($authorId)
+    {
+        $this->author = $authorId;
 
         return $this;
     }
