@@ -16,7 +16,18 @@ class PostsTable {
     }
     public function insertPost(Post $post) {
         $this->ensureTableExists();
+        $tn = $this->tableName;
 
+        $statement = $this->pdo->prepare("INSERT INTO $tn (title, abstract, last_modified, post_file_name, author_id)
+                    VALUES(:title, :abstract, :last_modified, :post_file_name, :author_id)");
+
+        $statement->bindParam(":title", $post->getTitle());
+        $statement->bindParam(":abstract", $post->getAbstract());
+        $statement->bindParam(":last_modified", $post->getLastModified()==null?"DATE(NOW())":$post->getLastModified());
+        $statement->bindParam(":post_file_name", $post->getFileName());
+        $statement->bindParam(":author_id", 0); // default user
+
+        $statement->execute();
     }
 
     private function ensureTableExists() {
@@ -27,7 +38,7 @@ class PostsTable {
             title VARCHAR(255) NOT NULL,
             abstract TEXT, 
             last_modified DATE,
-            post_file_name TEXT,
+            post_file_name TEXT NOT NULL,
             author_id INT NOT NULL,
             CONSTRAINT author_fk
             FOREIGN KEY (author_id)
