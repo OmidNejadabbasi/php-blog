@@ -1,12 +1,14 @@
 <?php
 
-
 require 'vendor/autoload.php';
 
-$router = new Router;
+function url () {
+    return trim(
+        parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+}
 
-require 'routes.php';
+function requestMethod(){
+    return $_SERVER['REQUEST_METHOD'];
+}
 
-require $router->direct(trim($_SERVER['REQUEST_URI'], '/'));
-
-?>
+Router::load('routes.php')->direct(url(), requestMethod());
