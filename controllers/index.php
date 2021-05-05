@@ -1,8 +1,12 @@
 <?php
 
-$postList = 
+class IndexController
+{
+    public function view()
+    {
+        $postList = null;
 
+        return require 'views/index.view.php';
 
-require 'views/index.view.php'
-
-?>
+    }
+}

@@ -43,12 +43,12 @@ class Router
                 $action = $requestURI[1];
             }
             else {
-                $action = "view()";
+                $action = "view";
             }
             $controller = new $controller;
 
             if (method_exists($controller, $action)) {
-                return $controller->$action;
+                return $controller->$action();
             }
 
         }
