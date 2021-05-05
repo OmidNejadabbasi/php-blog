@@ -4,6 +4,9 @@ require 'partials/head.phtml';
 ?>
 
 <body>
+
+    
+
     <div class="content">
     <form id="new-post-form" action="create-post" method="POST" >
 
