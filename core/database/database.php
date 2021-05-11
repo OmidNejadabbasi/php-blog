@@ -11,7 +11,7 @@ class ConnectDb
     private $conn;
 
     private $host = 'localhost';
-    private $user = 'root';
+    private $user = 'omid';
     private $pass = '';
     private $name = 'blog';
 
@@ -63,16 +63,18 @@ class PostsTable
 
     public function insertPost(Post $post)
     {
-        $tn = $this->tableName;
+        $tn = self::$tableName;
 
         $statement = $this->pdoObject->prepare("INSERT INTO $tn (title, abstract, last_modified, content, author_id)
                     VALUES(:title, :abstract, :last_modified, :content, :author_id)");
 
         $statement->bindParam(":title", $post->getTitle());
         $statement->bindParam(":abstract", $post->getAbstract());
-        $statement->bindParam(":last_modified", $post->getLastModified() == null ? "DATE(NOW())" : $post->getLastModified());
+        $lastModified = $post->getLastModified() == null ? "DATE(NOW())" : $post->getLastModified();
+        $statement->bindParam(":last_modified", $lastModified);
         $statement->bindParam(":content", $post->getContent());
-        $statement->bindParam(":author_id", 0); // default user
+        $authorID = 1;
+        $statement->bindParam(":author_id", $authorID); // default user
 
         $statement->execute();
     }
@@ -80,15 +82,15 @@ class PostsTable
     private function ensureTableExists()
     {
 
-        $tn = $this->tableName;
-        $this->pdoObject->exec("CREATE TABLE IF NOT EXISTS $tn(
+        $tn = self::$tableName;
+        $this->pdoObject->exec("CREATE TABLE IF NOT EXISTS $tn (
             post_id INT AUTO_INCREMENT PRIMARY KEY,
             title VARCHAR(255) NOT NULL,
             abstract TEXT,
             last_modified DATE,
             content TEXT NOT NULL,
             author_id INT NOT NULL,
-            CONSTRAINT author_fk
+            CONSTRAINT authorFk
             FOREIGN KEY (author_id)
             REFERENCES authors(author_id)
             ON UPDATE CASCADE
