@@ -1,8 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Langar&family=Cinzel&family=Emilys+Candy&family=Forum&family=Fredericka+the+Great&family=Great+Vibes&family=Poiret+One&family=Quicksand&family=Raleway:wght@200;300;400;500;600;700&family=Red+Hat+Display&family=Shadows+Into+Light+Two&display=swap");
+
+
 *, ::after, ::before { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+img{
+    display: block;
+}
+.site-header, .list-item-container,.article-item, .site-content-area .part-header, .about-page-wrapper,.site-footer{
+    background-color: white;
+}
+html{
+    --main-color:rgb(25, 118, 92);
+    --main-color-hover:rgb(0, 75, 205);
+    font-size: 1rem;
+}
+body{
+    color: #333;
+    position: relative;
+    min-height: 100vh;
+}
+
+ul , ol{
+    list-style-type: none;
+    list-style: none;
+    padding: 0;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+br{
+    height: 25px;
+}
+
+/* Header styles */
+.site-header{
+    display: flex;
+    border-bottom: 1px solid var(--main-color);
+    height: 5rem;
+    margin-bottom: 2rem;
+}
+.home-page-link{
+    display: flex;
+    
+    font-family: 'Fredericka the Great' ;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+}
+.home-page-link .omid-image{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem ;
+    border: 2px solid rgb(96, 96, 96);
+
+}
+.header-middle-area{
+
+    flex:1;
+
+}
+.header-icon{
+    height: 60%;
+    max-width: 30%;
+    margin:0 .7rem;
+}
+.header-middle-area .header-list-container{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-items: center;
+}
+.header-middle-area .header-list-container li > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-family: 'Quicksand','Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 0 1rem;
+}
+.header-middle-area .header-list-container li{
+    flex: 1;
+    height: 100%;
+    border-right: 3px solid var(--main-color);
+    border-radius: 10px;
+    transition: .2s;
+    cursor: pointer;
+}
+.header-middle-area .header-list-container li:nth-of-type(1){
+    border-left: 3px solid var(--main-color);
+}
+.header-middle-area .header-list-container li:nth-of-type(1):hover{
+    border-right: 6px solid var(--main-color-hover);
+    border-left: 6px solid var(--main-color-hover);
+    
+}
+.header-middle-area .header-list-container li:hover{
+    border-right: 6px solid var(--main-color-hover);
+}
+
+
 
 
 .content {
