@@ -4,29 +4,29 @@ require 'Model/Author.php';
 class Post
 {
     protected $postId;
-    protected $fileName;
+    protected $content;
     protected $lastModified;
     protected $title;
     protected $abstract;
     protected $authorId;
 
-    public function __construct($fileName, $lastModified, $title, $abstract, $authorId)
+    public function __construct($content, $lastModified, $title, $abstract, $authorId)
     {
-        $this->fileName = $fileName;
+        $this->content = $content;
         $this->lastModified = $lastModified;
         $this->title = $title;
         $this->authorId = $authorId;
         $this->abstract = $abstract;
     }
 
-    public function getFileName()
+    public function getContent()
     {
-        return $this->fileName;
+        return $this->content;
     }
 
-    public function setFileName($fileName)
+    public function setContent($content)
     {
-        $this->fileName = $fileName;
+        $this->content = $content;
 
         return $this;
     }
