@@ -23,6 +23,7 @@ class CreatePostController
         PostsTable::getInstance()->insertPost($post);
 
         header("Location: /");
+        die();
     }
 
 }

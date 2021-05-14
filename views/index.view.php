@@ -17,28 +17,21 @@ require 'partials/head.phtml';
             <ul class="header-list-container">
                 <li>
                     <a>
-                        <img class="header-icon" src="ico/home.png">
+                        <img class="header-icon" src="public/ico/home.png">
                         <span>Home</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="java-room/index.html">
-                        <img class="header-icon" src="ico/java.svg">
-                        <span>Java room</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="python-room/index.html">
-                        <img class="header-icon" src="ico/python.svg">
-                        <span>Python room</span>
+                    <a href="create-post">
+                        <img class="header-icon" src="public/ico/create-post.png">
+                        <span>Create New Post</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="about.html">
-                        <img class="header-icon" src="ico/about.svg">
+                        <img class="header-icon" src="public/ico/about.svg">
                         <span>About</span>
                     </a>
                 </li>

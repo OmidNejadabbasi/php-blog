@@ -63,7 +63,7 @@ br{
 }
 .header-middle-area{
 
-    flex:1;
+    flex:0 0 800px;
 
 }
 .header-icon{
