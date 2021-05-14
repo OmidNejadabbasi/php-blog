@@ -5,6 +5,7 @@ require 'partials/head.phtml';
 
 <body>
 
+    <?php require 'partials/header.phtml'; ?>
 
 
     <div class="content">

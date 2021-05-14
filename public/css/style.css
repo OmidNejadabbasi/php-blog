@@ -132,7 +132,7 @@ br{
     width: 100%;
     border: 0.5px #999 solid;
     border-radius: 4px;
-    box-shadow: 2px 0px 5px 3px burlywood;
+    box-shadow: 2px 0px 5px 0px burlywood;
 }
 
 #new-post-form textarea:focus ,#new-post-form input:focus{
