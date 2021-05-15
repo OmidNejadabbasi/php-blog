@@ -9,14 +9,16 @@ class Post
     protected $title;
     protected $abstract;
     protected $authorId;
+    protected $posterImageFileName;
 
-    public function __construct($content, $lastModified, $title, $abstract, $authorId)
+    public function __construct($content, $lastModified, $title, $abstract, $authorId, $posterImageFileName)
     {
         $this->content = $content;
         $this->lastModified = $lastModified;
         $this->title = $title;
         $this->authorId = $authorId;
         $this->abstract = $abstract;
+        $this->posterImageFileName = $posterImageFileName;
     }
 
     public function getContent()
@@ -72,8 +74,19 @@ class Post
 
     public function setAuthorId($authorId)
     {
-        $this->author = $authorId;
+        $this->authorId = $authorId;
 
-        return $this;
+        return $this->authorId;
+    }
+    public function getPosterImageFileName()
+    {
+        return $this->posterImageFileName;
+    }
+
+    public function setPosterImageFileName($posterImageFileName)
+    {
+        $this->$posterImageFileName = $posterImageFileName;
+
+        return $this->authorId;
     }
 }

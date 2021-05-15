@@ -65,8 +65,8 @@ class PostsTable
     {
         $tn = self::$tableName;
 
-        $statement = $this->pdoObject->prepare("INSERT INTO $tn (title, abstract, last_modified, content, author_id)
-                    VALUES(:title, :abstract, :last_modified, :content, :author_id)");
+        $statement = $this->pdoObject->prepare("INSERT INTO $tn (title, abstract, last_modified, content, poster_image_file_name, author_id)
+                    VALUES(:title, :abstract, :last_modified, :content, :poster_image_file_name, :author_id)");
 
         $statement->bindParam(":title", $post->getTitle());
         $statement->bindParam(":abstract", $post->getAbstract());
@@ -75,6 +75,7 @@ class PostsTable
         $statement->bindParam(":content", $post->getContent());
         $authorID = 1;
         $statement->bindParam(":author_id", $authorID); // default user
+        $statement->bindValue(':poster_image_file_name', $post->getPosterImageFileName());
 
         $statement->execute();
     }
@@ -89,6 +90,7 @@ class PostsTable
             abstract TEXT,
             last_modified DATE,
             content TEXT NOT NULL,
+            poster_image_file_name TEXT,
             author_id INT NOT NULL,
             CONSTRAINT authorFk
             FOREIGN KEY (author_id)

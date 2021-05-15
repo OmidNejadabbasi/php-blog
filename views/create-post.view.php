@@ -9,7 +9,7 @@ require 'partials/head.phtml';
 
 
     <div class="content">
-    <form id="new-post-form" action="save-post" method="POST" >
+    <form id="new-post-form" action="save-post" method="POST" enctype="multipart/form-data">
 
         <div>
             <h2>Title</h2>
@@ -24,6 +24,11 @@ require 'partials/head.phtml';
         <div>
             <h2>Content </h2>
             <textarea form="new-post-form" name="content" rows="15" id="content-editor"></textarea>
+        </div>
+
+        <div>
+            <h2>Poster Image: </h2>
+            <input name="poster-image" type="file" accept="image/*" required>
         </div>
 
         <button type="submit" >Post </button>
